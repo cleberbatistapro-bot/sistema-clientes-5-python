@@ -1,2 +1,9 @@
 __pycache__/
 *.__pyc
+
+
+clientes.csv
+clientes.xlsx
+~$*.xlsx
+
+teste_exportar_*.py

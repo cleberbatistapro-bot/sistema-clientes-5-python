@@ -5,14 +5,16 @@ from clientes import (
     alterar_clientes,
     remover_cliente
 )
+from exportacoes import exportar_clientes_excel
 
 def exibir_menu():
-    print("\n==== SISTEMA DE CLIENTES 5.0 ====")
+    print("\n==== SISTEMA DE CLIENTES 5.0 ====\n")
     print("1 - Cadastrar cliente")
     print("2 - Listar cliente")
     print("3 - Alterar cliente")
     print("4 - Remover cliente")
-    print("5 - Sair")
+    print("5 - Gerar planilha de clientes")
+    print("6 - Sair")
 
 
 
@@ -39,6 +41,9 @@ def main():
                 remover_cliente(clientes)
 
             elif opcao ==5:
+                exportar_clientes_excel(clientes)
+
+            elif opcao ==6:
                 print("Sistema encerrado.")
                 break
 
