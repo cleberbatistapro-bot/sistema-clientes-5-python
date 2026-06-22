@@ -1,96 +1,211 @@
-# Sistema de Clientes 5.0 — Python
+# Mini CRM Administrativo em Python
 
-Sistema de cadastro de clientes desenvolvido em Python, com foco em CRUD, validações, persistência em JSON e organização modular do projeto.
+Sistema simples de gestão de clientes desenvolvido em Python, com foco em cadastro, organização de dados, validação de informações, persistência em JSON e geração de planilha Excel.
+
+Este projeto foi criado como parte da minha evolução prática em Python, automação de processos, análise de dados e desenvolvimento de soluções administrativas.
 
 ## Objetivo do projeto
 
-Este projeto foi criado como parte do meu aprendizado em Python, com foco em automação de processos, organização de código e construção de uma base técnica para projetos futuros da OONATECH.
+O objetivo do projeto é simular uma rotina administrativa simples de controle de clientes.
 
-A proposta foi desenvolver um sistema simples, mas bem estruturado, permitindo cadastrar, listar, alterar e remover clientes, aplicando boas práticas iniciais de organização, validação de dados e separação de responsabilidades.
+O sistema permite cadastrar clientes, consultar registros, alterar dados, remover clientes com confirmação e gerar uma planilha Excel organizada para uso administrativo.
+
+Este projeto também serve como base para futuras evoluções, como sistemas de agendamento, CRM, relatórios, dashboards e automações para pequenas empresas.
 
 ## Funcionalidades
 
-* Cadastro de clientes
-* Listagem de clientes
-* Alteração de nome, e-mail e telefone
-* Remoção de clientes com confirmação
-* Validação de campos obrigatórios
-* Validação simples de e-mail
-* Validação de telefone
-* Bloqueio de e-mail duplicado
-* Persistência de dados em arquivo JSON
-* Organização do projeto em módulos
+* Cadastrar clientes
+* Listar clientes cadastrados
+* Alterar dados de clientes
+* Remover clientes com confirmação
+* Validar campos obrigatórios
+* Validar formato básico de e-mail
+* Validar telefone com apenas números
+* Impedir cadastro duplicado pelo mesmo e-mail
+* Salvar dados em arquivo JSON
+* Carregar dados automaticamente ao abrir o sistema
+* Gerar planilha Excel de clientes
+* Criar tabela oficial do Excel com filtros e formatação
 
 ## Tecnologias utilizadas
 
 * Python
 * JSON
+* CSV
+* openpyxl
 * Git
 * GitHub
 
 ## Estrutura do projeto
 
 ```text
-sistema-clientes-5-python/
+sistema_cliente_5.0/
 │
 ├── main.py
 ├── clientes.py
 ├── validacoes.py
 ├── armazenamento.py
+├── exportacoes.py
 ├── config.py
 ├── clientes_5_limpo.json
-├── sistema_clientes_5_limpo.py
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
 ## Responsabilidade dos arquivos
 
-* `main.py`: controla o menu principal e inicia o sistema.
-* `clientes.py`: contém as funções de cadastro, listagem, alteração, remoção e seleção de clientes.
-* `validacoes.py`: contém as funções de validação de campos, e-mail e telefone.
-* `armazenamento.py`: contém as funções responsáveis por carregar e salvar os dados em JSON.
-* `config.py`: guarda configurações do projeto, como o nome do arquivo JSON.
-* `clientes_5_limpo.json`: arquivo onde os dados dos clientes são armazenados.
-* `sistema_clientes_5_limpo.py`: versão completa anterior do sistema em um único arquivo.
+### `main.py`
+
+Controla o fluxo principal do sistema.
+
+É responsável por exibir o menu, receber a opção do usuário e chamar as funções corretas.
+
+### `clientes.py`
+
+Contém as funções principais do sistema:
+
+* cadastrar clientes
+* listar clientes
+* alterar clientes
+* remover clientes
+* selecionar cliente
+* verificar e-mail duplicado
+
+### `validacoes.py`
+
+Contém as funções de validação:
+
+* campo obrigatório
+* e-mail
+* telefone
+
+### `armazenamento.py`
+
+Responsável por carregar e salvar os dados no arquivo JSON.
+
+### `exportacoes.py`
+
+Responsável por gerar arquivos externos, como CSV e Excel.
+
+A principal saída atual do sistema é a planilha:
+
+```text
+clientes.xlsx
+```
+
+### `config.py`
+
+Guarda os nomes dos arquivos usados no projeto.
+
+### `requirements.txt`
+
+Lista as bibliotecas externas necessárias para executar o projeto.
 
 ## Como executar o projeto
 
-1. Clone o repositório ou baixe os arquivos.
-2. Abra a pasta do projeto no VS Code ou em outro editor.
-3. Execute o arquivo principal:
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/cleberbatistapro-bot/sistema-clientes-5-python.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd sistema-clientes-5-python
+```
+
+3. Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Execute o sistema:
 
 ```bash
 python main.py
 ```
 
+## Menu do sistema
+
+```text
+==== SISTEMA DE CLIENTES 5.0 ====
+
+1 - Cadastrar cliente
+2 - Listar clientes
+3 - Alterar cliente
+4 - Remover cliente
+5 - Gerar planilha de clientes
+6 - Sair
+```
+
+## Exemplo de uso
+
+O usuário pode cadastrar clientes informando:
+
+* nome
+* e-mail
+* telefone
+
+Depois, o sistema salva os dados no arquivo JSON e permite gerar uma planilha Excel com os clientes cadastrados.
+
+A planilha gerada possui:
+
+* cabeçalho formatado
+* filtros automáticos
+* largura de colunas ajustada
+* tabela oficial do Excel
+* dados organizados para uso administrativo
+
 ## Aprendizados aplicados
 
-Neste projeto, foram praticados conceitos como:
+Durante o desenvolvimento deste projeto, foram praticados conceitos como:
 
-* Funções em Python
-* Listas e dicionários
-* Lista de dicionários
-* Estrutura CRUD
-* Validação de dados
-* Tratamento de erros com `try/except`
-* Leitura e escrita em JSON
-* Modularização de código
-* Controle de versão com Git
-* Publicação de projeto no GitHub
+* funções
+* listas
+* dicionários
+* lista de dicionários
+* validação de dados
+* tratamento de erros
+* leitura e escrita em JSON
+* modularização de código
+* exportação para CSV
+* geração de planilha Excel
+* uso da biblioteca openpyxl
+* versionamento com Git
+* publicação no GitHub
 
-## Próximos passos
+## Possíveis melhorias futuras
 
-Possíveis evoluções futuras:
+* Normalizar e-mails para evitar duplicidade com diferença entre letras maiúsculas e minúsculas
+* Melhorar a validação de telefone
+* Adicionar busca de clientes
+* Adicionar CPF ou outro identificador único
+* Criar histórico de alterações
+* Criar banco de dados SQLite
+* Criar interface web
+* Criar dashboard de análise de clientes
+* Evoluir para um sistema de agendamento
+* Integrar com automações administrativas
 
-* Exportação de dados para CSV ou Excel
-* Uso de banco de dados SQLite
-* Criação de uma API com FastAPI
-* Interface web para o sistema
-* Relatórios simples de clientes
-* Testes automatizados
+## Posicionamento do projeto
+
+Este projeto representa uma base inicial de um Mini CRM Administrativo.
+
+Ele pode ser usado como ponto de partida para soluções maiores, como:
+
+* controle de clientes
+* sistema de agendamentos
+* CRM simples
+* relatórios administrativos
+* automações internas
+* análise de dados
+* dashboards empresariais
 
 ## Autor
 
-Desenvolvido por Cleber Batista, como parte da jornada de aprendizado em Python, Inteligência Artificial e automação de processos para a construção da OONATECH.
+Cleber Batista
 
+Projeto desenvolvido como parte da construção de uma base técnica em Python, análise de dados, automação de processos e soluções administrativas para a OONATECH.

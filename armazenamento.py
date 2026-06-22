@@ -12,7 +12,7 @@ def carregar_clientes():
     
     except json.JSONDecodeError:
         print("Arquivo de clientes vazio ou com formato inválido.")
-        return
+        return[]
     
 
 def salvar_clientes(clientes):

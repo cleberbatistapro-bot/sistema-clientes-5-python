@@ -48,7 +48,7 @@ def main():
                 break
 
             else:
-                print("Opção inválida. Escolha opção entre 1 e 5.")
+                print("Opção inválida. Escolha opção entre 1 e 6.")
 
         except ValueError:
             print("Opção inválida. Digite apenas números.")
